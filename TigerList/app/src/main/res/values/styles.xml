@@ -5,4 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Switch Style -->
+
+    <style name="RadioButtonDrawable" parent="Material.Drawable.RadioButton"/>
+
+    <style name="CheckBoxDrawable" parent="Material.Drawable.CheckBox"/>
 </resources>

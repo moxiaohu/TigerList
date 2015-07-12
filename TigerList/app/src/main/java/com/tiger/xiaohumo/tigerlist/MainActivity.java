@@ -4,11 +4,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.tiger.xiaohumo.tigerlist.adapters.NormalRecyclerViewAdapter;
+import com.tiger.xiaohumo.tigerlist.objects.DreamObject;
 
 import java.util.ArrayList;
 
@@ -25,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
     @Bind(R.id.input_dream)
     EditText edtTxtInputDream;
 
-    public static ArrayList<String> list;
+    public static ArrayList<DreamObject> list;
     private NormalRecyclerViewAdapter adapter;
 
     @Override
@@ -36,14 +38,19 @@ public class MainActivity extends ActionBarActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
         adapter = new NormalRecyclerViewAdapter(this, list);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         mRecyclerView.setAdapter(adapter);
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
     @OnClick(R.id.input_ok)
     public void OnClickOK(){
         if (edtTxtInputDream.getText() != null){
-            list.add(0, edtTxtInputDream.getText().toString());
-            adapter.notifyDataSetChanged();
+            DreamObject dreamObject = new DreamObject();
+            dreamObject.setFinished(false);
+            dreamObject.setTitle(edtTxtInputDream.getText().toString());
+            list.add(0, dreamObject);
+            adapter.notifyItemInserted(0);
         }
     }
 
@@ -68,4 +75,18 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+            //Remove swiped item from list and notify the RecyclerView
+
+            adapter.removeItem(viewHolder.getPosition(), adapter);
+        }
+    };
 }
