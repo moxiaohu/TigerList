@@ -41,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         mRecyclerView.setAdapter(adapter);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
+
+        //dsfsfsfagadf fuck
     }
 
     @OnClick(R.id.input_ok)
