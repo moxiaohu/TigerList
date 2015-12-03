@@ -41,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         mRecyclerView.setAdapter(adapter);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
-
+//dfdfsfdsfsfs
         //dsfsfsfagadf fuck
     }
 
