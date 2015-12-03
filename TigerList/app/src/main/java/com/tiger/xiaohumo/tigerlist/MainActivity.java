@@ -29,6 +29,9 @@ public class MainActivity extends Activity {
     ////sfsdfsdfsf
 
     @Bind(R.id.input_dream)
+
+
+            
     EditText edtTxtInputDream;
 
     public static ArrayList<DreamObject> list;
