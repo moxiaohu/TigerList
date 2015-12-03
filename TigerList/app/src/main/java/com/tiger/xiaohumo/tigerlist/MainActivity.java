@@ -25,6 +25,9 @@ public class MainActivity extends Activity {
     @Bind(R.id.dream_list)
     RecyclerView mRecyclerView;
 
+    //sfsdggreifdkjshjfkfg//dsdfsdf/
+    ////sfsdfsdfsf
+
     @Bind(R.id.input_dream)
     EditText edtTxtInputDream;
 
