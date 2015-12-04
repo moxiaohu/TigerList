@@ -56,10 +56,16 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
         @Bind(R.id.check_item)
         CheckBox item;
 
+
+
         NormalTextViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
             item.setOnCheckedChangeListener(listener);
+
+
+
+            
         }
 
         private CompoundButton.OnCheckedChangeListener listener = new CompoundButton.OnCheckedChangeListener() {
