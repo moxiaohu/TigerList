@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
     @Bind(R.id.input_dream)
 
 
-            
+
     EditText edtTxtInputDream;
 
     public static ArrayList<DreamObject> list;
@@ -69,6 +69,8 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+
+        // hello how are you~~~
     }
 
     @Override
